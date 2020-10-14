@@ -57,11 +57,11 @@ function formatAsCustomString(date, number) {
     
     for (let i = 0; i < toTranslate.length; i++) {
       brailleWord +=
-        toTranslate[i] == toTranslate[i].toUpperCase() ? "000001"+braille[toTranslate[i].toLowerCase()] : braille[toTranslate[i].toLowerCase()];
+        toTranslate[i] == toTranslate[i].toUpperCase() ? "000001"+braille[toTranslate[i].toLowerCase()] : braille[toTranslate[i]];
     }
     return brailleWord;
   }
-  console.log(translateToBraille("PhI"));
+  // console.log(translateToBraille("phi"));
   
   //question 4 Post-order traversal
   function findParent(treeNode, labelToFind) {
@@ -73,9 +73,15 @@ function formatAsCustomString(date, number) {
     var v1 = parseFloat(value1);
     var v2 = parseFloat(value2);
     var returnValue = 0;
-  
+    //Added two error messages below
+    if(isNaN(v1) || isNaN(v2)){
+      throw Error("Values must be numeric");
+    }
+    if(v2 == 0){
+      throw Error('ARITHMETIC ERROR')
+    }
     switch (calcOperator) {
-      case "add":
+      case "Add": //Capitalized add
         returnValue = v1 + v2;
         break;
       case "Subtract":
@@ -87,8 +93,10 @@ function formatAsCustomString(date, number) {
       case "Divide":
         returnValue = v1 / v2;
         break;
+      default: // added a default error
+        throw Error('INCORRECT OPERATOR');
     }
-    return result;
+    return returnValue; //changed result to returnValue
   }
   
   //question 6 Specification
