@@ -25,128 +25,43 @@ function formatAsCustomString(date, number) {
   function translateToBraille(toTranslate) {
     //code here
     let brailleWord = "";
-  
+    let braille ={
+      "a":"100000",
+      "b":"110000",
+      "c":"100100",
+      "d":"100110",
+      "e":"100010",
+      "f":"110100",
+      "g":"110110",
+      "h":"110010",
+      "i":"010100",
+      "j":"010110",
+      "k":"101000",
+      "l":"111000",
+      "m":"101100",
+      "n":"101110",
+      "o":"101010",
+      "p":"111100",
+      "q":"111110",
+      "r":"111010",
+      "s":"011100",
+      "t":"011110",
+      "u":"101001",
+      "v":"111001",
+      "w":"010111",
+      "x":"101101",
+      "y":"101111",
+      "z":"101011",
+      " ":"000000",
+    }
+    
     for (let i = 0; i < toTranslate.length; i++) {
       brailleWord +=
-        toTranslate[i] == toTranslate[i].toUpperCase() ? "000001" : "";
-  
-      switch (toTranslate[i].toLowerCase()) {
-        case "a":
-          brailleWord += "100000";
-          break;
-        case "b":
-          brailleWord += "110000";
-          break;
-        case "c":
-          brailleWord += "100100";
-          break;
-        case "d":
-          brailleWord += "100110";
-          break;
-        case "e":
-          brailleWord += "100010";
-          break;
-        case "f":
-          brailleWord += "110100";
-          break;
-        case "g":
-          brailleWord += "110110";
-          break;
-        case "h":
-          brailleWord += "110010";
-          break;
-        case "i":
-          brailleWord += "010100";
-          break;
-        case "j":
-          brailleWord += "010110";
-          break;
-        case "k":
-          brailleWord += "101000";
-          break;
-        case "l":
-          brailleWord += "111000";
-          break;
-        case "m":
-          brailleWord += "101100";
-          break;
-        case "n":
-          brailleWord += "101110";
-          break;
-        case "o":
-          brailleWord += "101010";
-          break;
-        case "p":
-          brailleWord += "111100";
-          break;
-        case "q":
-          brailleWord += "111110";
-          break;
-        case "r":
-          brailleWord += "111010";
-          break;
-        case "s":
-          brailleWord += "011100";
-          break;
-        case "t":
-          brailleWord += "011110";
-          break;
-        case "u":
-          brailleWord += "101001";
-          break;
-        case "v":
-          brailleWord += "111001";
-          break;
-        case "w":
-          brailleWord += "010111";
-          break;
-        case "x":
-          brailleWord += "101101";
-          break;
-        case "y":
-          brailleWord += "101111";
-          break;
-        case "z":
-          brailleWord += "101011";
-          break;
-        case " ":
-          brailleWord += "000000";
-          break;
-        default:
-          brailleWord += toTranslate[i];
-      }
+        toTranslate[i] == toTranslate[i].toUpperCase() ? "000001"+braille[toTranslate[i].toLowerCase()] : braille[toTranslate[i].toLowerCase()];
     }
     return brailleWord;
   }
-  // console.log(translateToBraille("PhI"));
-  var BRAILLE = {
-      'A': '⠁',
-      'B': '⠃',
-      'C': '⠉',
-      'D': '⠙',
-      'E': '⠑',
-      'F': '⠋',
-      'G': '⠛',
-      'H': '⠓',
-      'I': '⠊',
-      'J': '⠚',
-      'K': '⠅',
-      'L': '⠇',
-      'M': '⠍',
-      'N': '⠝',
-      'O': '⠕',
-      'P': '⠏',
-      'Q': '⠟',
-      'R': '⠗',
-      'S': '⠎',
-      'T': '⠞',
-      'U': '⠥',
-      'V': '⠧',
-      'W': '⠺',
-      'X': '⠭',
-      'Z': '⠵',
-      'Y': '⠽'
-  }
+  console.log(translateToBraille("PhI"));
   
   //question 4 Post-order traversal
   function findParent(treeNode, labelToFind) {
